@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<title>Insert title here</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="fa/css/all.css" />
+		<style type="text/css">
+			a{
+				text-decoration:none;
+				color:white;
+				font-size:14px;
+			}
+			a:hover{
+				opacity:0.5;
+			}
+			.top-bar-wrapper{
+				height:48px;
+				background-color:#000;
+			}
+			.top-bar{
+				max-width:1200px;
+				height:48px;
+				background-color:#000;
+				margin:0 auto;
+				display:flex;	
+				align-items:center;
+				justify-content:space-between;
+			}
+			/*让side-nav导航条相对于根元素定位更好，方便使背景铺满屏幕，而不用设置百分比vw；
+			.left-menu{
+				position:relative;
+			}*/
+			.menu-icon{
+				width:48px;
+				height:48px;
+				position:relative;
+			}
+			.menu-icon li{
+				height:1px;
+				width:18px;
+				background-color:white;
+				position:absolute;
+				left:0;
+				right:0;
+				margin:0 auto;
+				transform-origin:left center;
+				transition:transform 0.5s;
+			}
+			.menu-icon li:nth-child(1){
+				top:18px;
+			}
+			.menu-icon li:nth-child(2){
+				top:24px;
+			}
+			.menu-icon li:nth-child(3){
+				top:30px;
+			}
+			.left-menu:hover .menu-icon li:nth-child(1){
+				transform:rotateZ(41deg);
+			}
+			.left-menu:hover .menu-icon li:nth-child(2){
+				visibility:hidden;
+			}
+			.left-menu:hover .menu-icon li:nth-child(3){
+				transform:rotateZ(-41deg);
+			}
+			.side-nav{
+				position:absolute;
+				left:0;
+				right:0;
+				top:48px;
+				bottom:0;	
+				padding-top:35px;		
+				background-color:#000;
+			}
+			.side-nav li{
+				width:80%;
+				margin:0 auto;
+				line-height:44px;
+				border-bottom:1px solid rgba(255,255,255,.2);
+			}
+			.side-nav{
+				display:none;
+			}
+			.search{
+				color:white;
+			}
+			.left-menu:hover .side-nav{
+				display:block;
+			}
+			.user{
+				width:52px;
+				line-height:48px;
+				overflow:hidden;
+				text-align:center;
+			}
+			.user a{
+				margin-left:0;
+				transition:all 0.4s;
+				font-size:18px;
+			}
+			.left-menu:hover ~ .user a{
+				margin-left:52px;
+			}
+			.logo a{
+				text-indent:-999999px;
+				display:block;
+				width:122px;
+				height:32px;
+				background-image:url(images/meitu@2x.png);
+				background-size:400px 400px;
+			}
+			@media (min-width:768px){
+				.left-menu{
+					order:2;
+					flex:auto;	
+				}
+				.logo{
+					order:1;	
+				}
+				.user{
+					order:3;	
+				}
+				.menu-icon{
+					display:none;
+				}
+				.side-nav{
+					margin:0;
+					display:flex;
+					/*把定位设为默认值，取消绝对定位*/
+					position:static;
+					padding-top:0;
+				}
+				.search{
+					display:none;
+				}
+				.side-nav li{
+					height:48px;
+					width:auto;
+					border-bottom:none;
+				}
+				.left-menu:hover .side-nav{
+					display:flex;
+				}
+				.left-menu:hover~.user a{
+					margin:0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 响应式网页，移动端优先，渐进式增强 -->
+		<div class="top-bar-wrapper">
+			<div class="top-bar">
+				<div class="left-menu">
+					<ul class="menu-icon">
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+					<ul class="side-nav">
+						<li><a href="#">手机</a></li>
+						<li><a href="#">美容仪器</a></li>
+						<li><a href="#">配件</a></li>
+						<li><a href="#">服务支持</a></li>
+						<li><a href="#">企业网站</a></li>
+						<li><a href="#"><i class="fas fa-search"></i></a><span class="search">搜索 Meitu.com</span></li>
+					</ul>
+				</div>
+				<div class="logo">
+					<a href="#">meitu美图</a>
+				</div>
+				<div class="user">
+					<a href="#"><i class="fas fa-user"></i></a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

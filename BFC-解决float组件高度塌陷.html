@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			.box1{
+				border:5px red solid;
+				/*
+				由于box2设置浮动，脱离文档流后将无法撑开父元素，会造成高度塌陷，打开bfc可以解决高度塌陷
+				给元素设置overflow为非visible的值，是最好的方式之一；
+				即使不是父子元素，兄弟元素等也是一样，如box3和box4，box3开启浮动后脱离文档流，box4会
+				上移到box3的位置，被box3覆盖，
+				只要给box4开启bfc，就不会被box3覆盖，这是bfc特性
+				而且开启bfc的元素，其子元素不会和父元素的外边距重叠（如box5和box6）
+				其他（不推荐，副作用大）
+				如：
+				设置元素的浮动(其他元素会挤上来)；
+				将元素设置为行内块元素（宽度就没了，不再独占一行，不利于布局）；
+				*/
+				
+				/*display:inline-block;*/
+				/*float:left;*/
+				overflow:hidden;
+			}
+			.box2{
+				width:50px;
+				height:50px;
+				background-color:blue;
+				float:left
+			}
+			.box3{
+				width:60px;
+				height:60px;
+				background-color:yellow;
+				float:left;
+			}
+			.box4{
+				width:60px;
+				height:60px;
+				background-color:green;
+				overflow:hidden;
+			}
+			.box5{
+				width:100px;
+				height:100px;
+				background-color:red;
+				overflow:hidden;
+				
+			}
+			.box6{
+				width:50px;
+				height:50px;
+				background-color:gray;
+				/*
+				不开启bfc，子元素的外边距和父元素重叠，会使父元素和子元素一起移动，开启父元素，则可避免
+				*/
+				margin-top:20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1">
+			<div class="box2"></div>
+		</div>
+		<div class="box3"></div>
+		<div class="box4"></div>
+		<div class="box5">
+			<div class="box6"></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			.box1{
+				border:10px solid red;
+			}
+			.box2{
+				width:100px;
+				height:100px;
+				background-color:purple;
+				float:left;
+			}
+			/*伪元素是行内元素，即使清除了浮动影响，但不独占一行，会和box2在同一行，高度由内容撑开
+			例如内容是hello，则高度只为字体高度而已；
+			需设置成块元素，由于块元素独占一行，所以不会和box2在同一行，而是在box2的下面，这样就避免了高度塌陷*/
+			.box1::after{
+				content:"";
+				display:block;
+				clear:both;
+			}
+			/*
+			.box3{
+				clear:both;
+			}
+			*/
+		</style>
+	</head>
+	<body>
+		<div class="box1">
+			<div class="box2"></div>
+			<!-- 通过一个空标签，clear：both清除浮动影响，可以解决高度塌陷，但会出现多余标签 -->
+			<!-- <div class="box3"></div> -->			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			.outer{
+				height:300px;
+				border-bottom:10px solid black;
+				margin:10px auto; 
+				overflow:hidden;
+			}
+			.inner{
+				width:50px;
+				height:50px;
+				background-color:yellow;
+				box-shadow:0 0 3px rgba(0,0,0,.6);
+				border-radius:50%;
+				/*
+				animation-name:ball;
+				animation-duration:2s;
+				animation-timing-function:ease-in;
+				animation-fill-mode:forwards;
+				animation-direction:alternate;
+				animation-iteration-count:999;
+				*/
+				animation:ball 10s ease-in forwards;
+			}
+			@keyframes ball{
+				from{
+					margin-top:0;
+				}
+				/*20%为动作时间的20%，设置此时的球到底，40%弹起来，60%再到底*/
+				10%,20%,30%,40%,50%,60%,70%,80%,90%,to{
+					margin-top:250px;
+				}
+				15%,25%,35%,45%,55%,65%,75%,85%,95%{
+					animation-timing-function:ease-out;
+				}
+				15%{
+					margin-top:25px;
+				}
+				25%{
+					margin-top:50px;
+				}
+				35%{
+					margin-top:75px;
+				}
+				45%{
+					margin-top:100px;
+				}
+				55%{
+					margin-top:125px;
+				}
+				65%{
+					margin-top:150px;
+				}
+				75%{
+					margin-top:175px;
+				}
+				85%{
+					margin-top:200px;
+				}
+				95%{
+					margin-top:225px;
+				}
+				/*
+				20%{
+					margin-top:250px;
+				}
+				40%{
+					margin-top:100px;
+				}
+				60%{
+					margin-top:250px;
+				}
+				80%{
+					margin-top:200px;
+				}
+				to{
+					margin-top:250px;
+				}
+				*/
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="outer">
+			<div class="inner"></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>京东轮播图</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<style type="text/css">
+		 	.img-list{
+		 		width:590px;
+		 		height:470px;
+		 		/*
+		 		图片太大，不设置图片大小或是overflow看不见居中效果
+		 		*/
+		 		margin:10px auto;
+		 		/*不开启定位，overflow不生效；
+				overflow:hidden;
+				position:relative;
+		 		*/
+		 		
+		 		/*子绝父相，此处相对定位，避免脱离文档流，覆盖其他区域
+		 		开启定位，便于.point元素定位
+		 		*/
+		 		position:relative;
+		 	}
+		 	
+			.img-list li{
+				position:absolute;
+			}
+			.img-list li:nth-child(1){
+				z-index:3;
+			}
+			img{
+				width:590px;
+		 		height:470px;
+			}
+			.point{
+				position:absolute;
+				z-index:999;
+				top:435px;
+				left:30px;
+			}
+			.point a{
+				width:10px;
+				height:10px;
+				background-color:rgba(255,255,255,.4);
+				border-radius:50%;
+				margin-left:4px;
+				float:left;
+				/*直接设置行内块元素好像更好，但还是先用用float吧
+				display:inline-block;
+				*/
+				
+				/*为了使点击的元素和每点击的元素等高，设置一个透明色的边框*/
+				border:2px transparent solid;
+				/*
+				将背景颜色设置到内容区，边框和内边距不再有背景颜色
+				*/
+				background-clip:content-box;
+			}
+			.point a.active,.point a:hover{
+				background-color:rgb(255,255,255);
+				border:2px rgba(255,255,255,.3) solid;
+			}
+		
+		</style>
+		<script type="text/javascript" src="tools/changeClass.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				//获取小圆点的父元素，好给其绑定点击
+				var point = document.querySelectorAll(".point")[0];
+				//获得所有小圆点
+				var aPoints = document.querySelectorAll(".point a");
+				//获取所有的图片（由于给的是li开启定位）
+				var liArr = document.getElementsByTagName("li");
+				var index = 0;
+				//通过changeClass函数对类进行操作；
+				addClass(aPoints[index],"active");
+				//aPoints[index].className += " active";
+				for(var i = 0 ; i < aPoints.length ; i++ ){
+					aPoints[i].num = i;
+				}
+				point.onclick = function(event){
+					liArr[index].style.zIndex="";
+					for(var i = 0 ; i < aPoints.length ; i++){
+						removeClass(aPoints[i],"active");
+					}
+					if(event.target.tagName ==="A"){
+						index = event.target.num;
+						aPoints[index].className += " active";
+					}
+					//imgArr[index].parentNode.parentNode.style.zIndex = 9;
+					liArr[index].style.zIndex = 9;
+				};
+			};	
+		</script>
+	</head>
+	<body>
+		<ul class="img-list">
+			<li><a href="#"><img class="focus-item-ing" alt="image" src="images/img-0001.jpg"></a></li>
+			<li><a href="#"><img class="focus-item-ing" alt="image" src="images/img-0002.jpg"></a></li>
+			<li><a href="#"><img class="focus-item-ing" alt="image" src="images/img-0003.jpg"></a></li>
+			<li><a href="#"><img class="focus-item-ing" alt="image" src="images/img-0004.jpg"></a></li>
+			<li><a href="#"><img class="focus-item-ing" alt="image" src="images/img-0005.jpg"></a></li>
+			<li><a href="#"><img class="focus-item-ing" alt="image" src="images/img-0006.jpg"></a></li>
+			<li><a href="#"><img class="focus-item-ing" alt="image" src="images/img-0007.jpg"></a></li>
+			<li><a href="#"><img class="focus-item-ing" alt="image" src="images/img-0008.jpg"></a></li>
+			<div class="point">
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+			</div>
+		</ul>
+	</body>
+</html>

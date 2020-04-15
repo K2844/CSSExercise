@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			/*伪元素开头的标准写法是使用双冒号::,这样更换，单冒号也可以*/
+			p::first-line {
+			background-color:yellow;
+			}
+			/*表示选中的内容*/
+			p::selection{
+			background-color:greenyellow;
+			}
+			/*::before,::after元素的开始，最后，需结合content属性使用,content中的内容不可选取*/
+			p::before {
+			content:"abc";
+			color:red;
+			}
+			p::after{
+			content:'abc';
+			color:red;
+			}
+		</style>
+	</head>
+	<body>
+		<p>可以结合多个伪元素来使用。在下面的例子中，段落的第一个字母将显示为红色，其字体大小为 xx-large。
+		         第一行中的其余文本将为蓝色，并以小型大写字母显示。段落中的其余文本将以默认字体大小和颜色来显示：</p>
+	</body>
+</html>

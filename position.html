@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			body{
+				height:2000px;
+			}
+			.box1{
+				width:50px;
+				height:50px;
+				background:#88e;
+			}
+			.box2{
+				width:50px;
+				height:50px;
+				background:#033;
+				/*
+				需先开启定位（position）处理static，都是开启定位，才可以设置偏移量left，right，top，bottom的值
+				position： static，relative，absolute，fix，sticky（粘滞定位，新增，兼容性较差，ie不支持，例子看导航条演示）
+				static：默认
+				relative：会提升元素的层级（如发生重叠，将覆盖其他元素），它原本所占的空间仍保留，
+				不会脱离文档流，性质不发生改变
+				absolute：如不设置偏移，位置不会变化，但元素会脱离文档流（下边的元素会挤上来）；
+				性质将发生改变（块元素变成行内元素，元素宽度被内容撑开，本来应独占一行，不设置宽度的话，将只有内容的宽度）
+				元素的层级提升；
+				#绝对定位是相对于其包含块进行定位的
+				#（包含块：离它最近的开启了定位的祖先元素
+					如果所有祖先元素都没有开启定位，则包含块为根元素html）			）
+				*/
+				position:absolute;
+				left:0px;
+				top:0px;
+			}
+			.box3{
+				width:50px;
+				height:50px;
+				background:#d9d9d9;
+			}
+			.box4{
+				width:100px;
+				height:100px;
+				background:orange;
+				/*
+				设置为fixed开启了元素的固定定位，和absolute类似，也会脱离文档流等，唯一不同的是
+				固定定位用于参照于浏览器的视口（可视窗口）定位，不会随滚动条滚动；
+				*/
+				position:fixed;
+			}
+			.box5{
+				width:200px;
+				height:200px;
+				background:yellow;
+				position:relative;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1">1</div>
+		<div class="box5">
+			5
+			<div class="box4">
+				4
+				<div class="box2">2</div>
+			</div>
+		</div>
+		<div class="box3">3</div>
+	</body>
+</html>

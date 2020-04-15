@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>导航条</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<style type="text/css">
+			body{
+				height:2000px;
+			}
+			ul.nav{
+				width:1210px;
+				height:48px;
+				background-color:#e8e7e3;
+				margin:0 auto;
+				margin-top:100px;
+				text-align:center;
+				/*
+				开启粘滞定位，和相对定位类似，不同点是到达视口的某个位置将其固定
+				兼容性较差，在360浏览器中测试成功
+				*/
+				position:sticky;
+				top:20px;
+				display:flex;
+			}
+			.nav li{
+				line-height:48px;
+				flex-grow:1;
+				flex-shrink:1;
+			}
+			a{
+				/*
+				将行内元素设置成块元素，才可以设置宽高
+				*/
+				display:block;
+				text-decoration:none;
+				color:#90908f;
+				font-weight:bold;
+				font-size:18px;
+			}
+			a:hover{
+				background-color:#3f3f3f;
+				color:#cdccc8;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="nav">
+			<li><a href="#">HTML/CSS</a></li>
+			<li><a href="#">浏览器脚本</a></li>
+			<li><a href="#">服务器脚本</a></li>
+			<li><a href="#">编程教程</a></li>
+			<li><a href="#">XML</a></li>
+			<li><a href="#">建站手册</a></li>
+			<li><a href="#">参考手册</a></li>
+		</ul>
+	</body>
+</html>

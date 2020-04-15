@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			.outer{
+				width:300px;
+				height:300px;
+				background-color:green;
+			}
+			/*百分比相对于父元素成比例变化*/
+			.inner{
+				width:50%;
+				height:50%;
+				background-color:red;
+			}
+			/*默认字体大小：16px，1em 等于当前的字体尺寸，字体大小变化，em代表的长度也相应改变*/
+			.box1{
+				width:10em;
+				height:10em;
+				background-color:yellow;
+				font-size:30px;
+			}
+			/*rem是相对于根元素（html）字体大小变化*/
+			.box2{
+				width:19rem;
+				height:19rem;
+				background-color:greenyellow;
+				font-size:16px;
+			}
+		</style>
+		</head>
+	<body>
+		<div class="outer">
+			<div class="inner"></div>
+		</div>
+		<div class="box1"></div>
+		<div class="box2"></div>
+	</body>
+</html>

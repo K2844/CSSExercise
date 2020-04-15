@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			/*
+			background-color;
+			background-image;
+			background-position;
+			background-attachment;
+			background-clip;
+			background-size;
+			background-origin;
+			background-repeat;
+			
+			background--简写属性，没有顺序要求，也没有必需写的，但是size必须在position后边，
+			如background-position/background-size
+			origin要在clip前面
+			*/
+			.box1{
+				width:200px;
+				height:400px;
+				/*背景图片不会溢出，默认背景图像将在垂直方向和水平方向重复。*/
+				background-color:yellow;
+				background-image:url(images/戒指.jpg);
+				/*
+				设置背景图片大小，第一个是宽，第二个是高，只写一个，第二个值默认auto
+				*/
+				/*background-size:10px 5px;*/
+				/*或者是cover：按原图大小显示，超出部分将不显示
+					contain：图片比例不变，显示完整图片；
+				*/
+				background-size:contain;
+				/*
+				设置背景重复方式：
+				repeat-x;
+				repeat-y;
+				inherit:规定应该从父元素继承 background-repeat 属性的设置。
+				*/
+				background-repeat:no-repeat;
+				/*top left center right bottom,如果只写一个，第二个值默认是center，或者直接设置x，y方向的偏移量*/
+				/*background-position:top center;*/
+				/*background-position:30px 30px;*/
+				/*边框设为double，方便查看边框下的背景颜色*/
+				border:10px red double;
+				/*padding:10px;*/
+				/*
+				背景图片偏移量计算的其实点，默认padding-box，background-position从内边距开始计算
+				content-box、border-box；
+				*/
+				background-origin:content-box;
+				/*
+				设置背景的范围
+				border-box(默认，背景会出现在边框下)
+				padding-box，背景只出现在内边距和内容区
+				content-box，背景只出现在内容区
+				*/
+				background-clip:content-box;
+				/*子元素滚动，父元素背景不动*/
+				overflow:scroll;
+			}
+			.box2{
+				width:100px;
+				height:1000px;
+				background-color:greenyellow;
+				background-image:url(images/jd-log.jpg);
+				background-repeat:no-repeat;
+				/*
+				背景图片是否跟随移动：
+				scroll（默认值，跟随元素移动）
+				fixed，固定不动
+				*/
+				background-attachment:fixed;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1">
+			<div class="box2"></div>
+		</div>
+	</body>
+</html>

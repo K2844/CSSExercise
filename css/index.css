@@ -1,0 +1,477 @@
+@charset "UTF-8";
+.clearfix::before,
+.clearfix::after{
+				content:"";
+				display:table;
+				clear:both;
+			}
+.w{
+	width:1226px;
+	margin:0 auto;
+	font-size:12px;
+}
+a{
+	text-decoration:none;
+}
+div.yiqing img{
+	width:100%;
+	vertical-align:top;
+}
+.navwrapper{
+	width:100%;
+	height:40px;
+	line-height:40px;
+    background-color:rgb(51, 51, 51);
+}
+.topnav a{
+	padding:0 5px;
+	color:#b0b0b0;
+	/*使超链接的高度和背景区一样高（上边设置了行高，所有a有高度）*/
+	display:block;
+}
+.topnav a:hover{
+	color:white;
+}
+.top-list li{
+	float:left;
+}
+.top-list span{
+	color:#424242;
+	font-size:12px;
+	float:left;
+}
+.right-top{
+	float:right;
+}
+.right-top li{
+	float:left;
+}
+.right-top span{
+	color:#424242;
+	font-size:12px;
+	float:left;
+}
+
+.shopcar{
+	float:right;
+	position:relative;
+}
+.shopcar li{
+	background-color:rgb(66,66,66);
+}
+.shopcar:hover a{
+	color:#ff8c75;
+	background-color:white;
+}
+.shop-link{
+	position:relative;
+	z-index:9999;
+	
+}
+.shopcar-list{
+	display:none;
+	width:250px;
+	line-height:100px;
+	text-align:center;
+	box-shadow:0 0 10px rgba(0,0,0,.3);
+	position:absolute;
+	right:0;
+	z-index:999;
+}
+.shopcar:hover .shopcar-list{
+	display:block;
+	background-color:white;
+}
+
+.image{
+	width:124px;
+	/*高度为0，将其隐藏*/
+	height:0;
+	line-height:12px;
+	text-align:center;
+	box-shadow:0 0px 10px rgba(0,0,0,.3);
+	position:absolute;
+	z-index:9999;
+	background-color:white;
+	/*
+	没有发生过渡约束，所有可直接设置margin-left调整位置（猜测）	
+	（有些困惑，没设置left和top，margin-left也能生效）
+	*/
+	margin-left:-39px;
+	/*由于高度为0，避免内容溢出，设置overflow，使其成功隐藏*/
+	overflow:hidden;
+	/*设置过渡效果，此处为高度设置，时间为0.3秒*/
+	transition:height .3s;
+}
+img.app{
+	width:90px;
+	margin:18px 17px 12px 17px;
+}
+.app-download:hover .image{
+	height:148px;
+}
+.app-download{
+	position:relative;
+}
+.soc{
+	position:relative;
+}
+.app-download:hover .soc::after{
+	content:"";
+	/*
+	脱离文档流了，不需要设置block了，
+	display:block;
+	*/
+	/*固定宽高，以免变大，导致出现梯形而不是三角形*/
+	width:0;
+	height:0;
+	/*
+	宽高都是0，设置边框，将出现小三角（其他三边颜色都设成透明）
+	*/
+	border-top:none;
+	border:6px red solid;
+	border-color:transparent transparent white transparent;
+	position:absolute;
+	bottom:0;
+	left:0;
+	right:0;
+	/*使小三角居中*/
+	margin:0 auto;
+}
+/*
+	222222222222222222222222222222222
+*/
+.top-header-wrapper{
+	width:100%;
+}
+.site-header{
+	height:100px;
+}
+.mi-logo{
+	float:left;
+	width:55px;
+	height:55px;
+	margin-top:22px;
+	background-color:red;
+	position:relative;
+	overflow:hidden;
+}
+.mi-logo .img-mi{
+	position:absolute;
+	width:55px;
+	height:55px;
+	background-color:blue;
+	background-image:url(../images/mi.jpg);
+	background-size:contain;
+	left:0;
+	transition:left .3s;	
+}
+.mi-logo .img-home{
+	position:absolute;
+	width:55px;
+	height:55px;
+	background-color:blue;
+	background-image:url(../images/home.jpg);
+	background-size:contain;
+	left:-55px;
+	transition:left .3s;
+}
+.mi-logo:hover .img-mi{
+	left:55px;
+}
+.mi-logo:hover .img-home{
+	left:0;
+}
+ul.header-navi{
+	margin-left:117px;
+}
+/*
+-----------------------------------------------------
+>,令子元素浮动，不包含后代元素，以免影响side-nav
+------------------------------------------------------
+*/
+.header-navi > li{
+	float:left;
+	line-height:100px;
+	font-size:16px;
+	padding:0 10px;
+	position:relative;
+}
+/*allthing的子元素隐藏，不影响后代元素*/
+.header-navi .allthing > a{
+	/*
+	将“全部商品”隐藏
+	*/
+	visibility:hidden;
+}
+.header-navi a{
+	color:black;
+}
+.header-navi li:hover a{
+	color:#ff8c75;
+}
+.top-header-wrapper{
+	position:relative;
+}
+.toggle-box{
+	height:0;
+	width:100%;
+	background-color:white;
+	position:absolute;
+	left:0;
+	top:100px;
+	box-shadow:0 1px 5px rgba(0,0,0,.2);
+	transition:height 0.3s;
+	z-index:999;
+}
+/*
+------------------------------------------------------------------------------
++:兄弟元素选择器（后边只有一个元素可用，一大摞则会失效）
+~以下为从li元素到兄弟元素toggle-box；
+由于绑定了li，到下拉框后则消失，因此加上toggle-box：hover，这样就可以了；
+:not(:nth-of-type（）)可以连着写，去除不包含的元素(不推荐，可读性差，麻烦)
+给li类名，采用类选择器
+-------------------------------------------------------------------------------
+*/
+/*.header-navi li:not(:nth-of-type(8)):not(:nth-of-type(9)):hover ~.toggle-box,*/
+.header-navi .toggel-list:hover ~ .toggle-box,
+.toggle-box:hover{
+	height:220px;
+} 
+.header-search-wrapper{
+	margin-top:25px;
+	float:right;
+	width:296px;
+	height:50px;
+	background-color:red;
+}
+.search-inp{
+	width:223px;
+	height:48px;
+	border:1px solid rgb(224,224,224);	
+	padding:0 10px;
+	float:left;
+	/*outlinle设为none，使输入时不出现默认的蓝边框*/
+	outline:none;
+}
+.search-btn{
+	width:51px;
+	height:50px;
+	padding:0;
+	border:1px solid rgb(224,224,224);
+	border-left:none;
+	outline:none;
+	/*
+	按钮默认的box-sizing是boder-box，而不是contentox，宽度和高为可见框大小；
+	*/
+	float:left;
+	background-color:white;
+}
+.search-btn .fa-search{
+	font-size:15px;
+	color:#616161;
+}
+/*
+获取焦点时（输入时），输入框和按钮都变色
+*/
+.search-inp:focus,
+.search-inp:focus + .search-btn{
+	border-color:orange;
+}
+.search-btn:hover,
+.search-btn:hover i{
+	color:white;
+	background-color:#ff6700;
+	border:none;
+}
+/*
+-----------------------------------------
+side-nav
+-----------------------------------------
+*/
+
+/*提高选择器的优先级，使其覆盖前面父类的设置，把路径写完整，这里加上..header-navi*/
+.header-navi .side-nav{
+	
+	height:420px;
+	line-height:42px;
+	padding:20px 0;
+    background-color: rgba(105, 101, 101, 0.6);
+    position:absolute;
+    z-index:999;
+    left:-117px;
+}
+.header-navi ul.side-nav li{
+	width:234px;
+	height:42px;
+}
+.header-navi ul.side-nav li a.side-a {
+	display:block;
+	font-size:14px;
+	color:white;
+	width:174px;
+	height:42px;
+	padding:0 30px;
+	position:relative;
+}
+.side-nav > li:hover a.side-a{
+	color:white;
+	background-color:orange;
+}
+.side-nav .fa-angle-right{
+	font-size:16px;
+	float:right;
+	line-height:42px;
+}
+/*------------------------------纵向弹出层-----------------------------------------*/
+.side-child-col1-wrapper{
+	display:none;
+	width:1000px;
+	position:absolute;
+	left:234px;
+	top:0;
+	background-color:white;
+	z-index:99;
+}
+div.side-child-col1{
+	/*
+	由于设置了浮动，造成了高度塌陷，撑不起边框，加上clearfix会使边框不能随内容变化而变化，
+	因此改为行内块元素，不独占一行，又有高度
+	*/
+	display:inline-block;
+	box-shadow:1px 0 2px rgba(0,0,0,.6);
+}
+.side-child-col1 ul{
+	width:230px;
+	float:left;
+	padding-left:20px; 
+}
+ul.header-navi .side-child-col1 ul li{
+	height:80px;
+	line-height:80px;
+}
+ul.header-navi .side-child-col1 a{
+	font-size:14px;
+	color:black;
+}
+ul.header-navi .side-child-col1 li:hover a{
+	color:#ff8c75;
+}
+.sidenav-col1:hover .side-child-col1-wrapper{
+	display:block;
+}
+/*----------------33333333333333----------------------------------*/
+.lunbotu{
+	position:relative;
+	height:460px;
+}
+.lunbotu li{
+	position:absolute;
+}
+.l-actived{
+	z-index:3;	
+}
+.lunbotu img{
+	width:100%;
+	vertical-align:top;
+}
+			.point{
+				position:absolute;
+				z-index:9;
+				top:410px;
+				right:30px;
+			}
+			.point a{
+				width:6px;
+				height:6px;
+				background-color:rgba(0,0,0,.4);
+				border-radius:50%;
+				margin-left:8px;
+				float:left;
+				/*直接设置行内块元素好像更好，但还是先用用float吧
+				display:inline-block;
+				*/
+				
+				/*为了使点击的元素和每点击的元素等高，设置一个透明色的边框*/
+				border:2px rgba(0,0,0,.2) solid;
+				/*
+				将背景颜色设置到内容区，边框和内边距不再有背景颜色
+				*/
+				background-clip:content-box;
+			}
+			.point a.active,.point a:hover{
+				background-color:rgba(0,0,0,0.1);
+				border:2px rgba(0,0,0,.2) solid;
+			}
+/*轮播图方向键*/
+.mi-left{
+	width:41px;
+	height:69px;
+	background-color:red;
+	position:absolute;
+	z-index:888;
+	top:0;
+	right:0
+	left:0;
+	bottom:0;
+	margin:auto 0;
+	margin-left:234px;
+	overflow:hidden;	
+}
+
+.dark-left{
+	position:absolute;
+	width:41px;
+	height:69px;
+	background-color:red;
+	background-image:url(../images/mi-left.jpg);
+	background-size:contain;
+	left:-41px;
+}
+.bright-left{
+	position:absolute;
+	width:41px;
+	height:69px;
+	background-color:red;
+	background-image:url(../images/toright.jpg);
+	background-size:contain;
+}
+.mi-left:hover .dark-left{
+	left:0;
+	z-index:888;
+}
+/*-------*/
+.mi-right{
+	width:41px;
+	height:69px;
+	background-color:red;
+	position:absolute;
+	z-index:888;
+	right:0;
+	top:0;
+	bottom:0;
+	margin:auto 0;
+	overflow:hidden;	
+}
+
+.dark-right{
+	position:absolute;
+	width:41px;
+	height:69px;
+	background-color:red;
+	background-image:url(../images/mi-right.jpg);
+	background-size:contain;
+	left:-41px;
+}
+.bright-right{
+	position:absolute;
+	width:41px;
+	height:69px;
+	background-color:red;
+	background-image:url(../images/toleft.jpg);
+	background-size:contain;
+}
+.mi-right:hover .dark-right{
+	left:0;
+	z-index:888;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<!-- 
+		表单form
+		用于将本地数据提交给远程服务器
+		 -->
+		<!-- action：要提交的服务器地址 -->
+		<form action="exercise1.html">
+			<!-- 文本框，不指定name，数据则不会提交到服务器中，还可以设置value，作为默认值 -->
+			<input type="text" name="national" value="中国"><br/>
+			<!-- 
+			placeholder 属性规定可描述输入字段预期值的简短的提示信息（比如：一个样本值或者预期格式的短描述）。
+			该提示会在用户输入值之前显示在输入字段中。
+			注意：placeholder 属性适用于下面的 input 类型：text、search、url、tel、email 和 password。
+			-->
+			<input type="text" name="fname" placeholder="First name"><br>
+			<!-- autofocus:自动获取焦点 -->
+			<input type="text" name="username" autofocus><br/>
+			<!-- 和文本框类似，但会对输入的邮箱地址进行检查和提示 -->
+			<input type="email" name="email"><br>
+			<!-- 密码框，不指定name，数据则不会提交到服务器中 -->
+			<!-- 
+			autocomplete自动提示，off：关闭，将不提示 
+			-->
+			<input type="password" name="password" autocomplete="off"><br/>
+			<!-- 
+			readonly：只读，不可更改（例如默认值是海南，将不可更改，但数据会提交到服务器）
+			disable：禁用，不会将数据提交到服务器 
+			-->
+			<input type="text" name="address" value="海南" readonly><br/>
+			<!-- 提交按钮，不指定value，默认值为“提交” -->
+			<input type="submit" value="注册"><br/>
+			<!-- 重置按钮(恢复输入框的默认值) -->
+			<input type="reset">
+			<!-- 
+			普通按钮:提供一个按钮，用以绑定js等，如不设置，只是单纯的按钮，没有动作
+			-->
+			<input type="button" value="test">
+			<br/><br/>
+			<!-- 与上面效果一样，只是这样更加灵活，可放置图片等 -->
+			<button type="submit"></button>
+			<button type="reset"></button>
+			<button type="button"></button>
+			<!-- 
+			单选按钮，name属性必须相同，这样相同的name值只可以选择一个，还需设置value值作为用户填写的值,使服务器区分所选值 
+			checked 默认选择值
+			-->
+			<input type="radio" name="hello" value="1"><br/>
+			<input type="radio" name="hello" value="2" checked><br/>
+			<br/><br/>
+			<!-- 多选框 -->
+			<input type="checkbox" name="test" value="a" checked><br/>
+			<input type="checkbox" name="test" value="b"><br/>
+			<input type="checkbox" name="test" value="c"><br/>
+			<br/><br/>
+			<!-- 下拉列表 ，需要指定name和value属性，如下-->
+			<select name="haha">
+				<option value="i">选项一</option>
+				<!-- selectde设为默认选择 -->
+				<option value="ii" selected>选项二</option>
+				<option value="iii">选项三</option>
+			</select>
+		</form>
+	</body>
+</html>

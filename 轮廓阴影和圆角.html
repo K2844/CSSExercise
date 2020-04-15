@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			.box1{
+				width:50px;
+				height:50px;
+				padding:20px;
+				background-color:green;
+				/*box-shadow: h-shadow v-shadow blur color */
+				box-shadow:10px 10px 10px #888;
+			}
+			.box1:hover{
+				/*outline和border用法类似，只是不会影响可见框的大小，
+				类似于在在外面描框，不会影响下一个元素的位置*/
+				outline:5px solid red;
+			}
+			.box2{
+				width:50px;
+				height:50px;
+				padding:20px;
+				background-color:orange;
+				/*表示圆的半径，如果四边都是50%，则是一个圆*/
+				border-top-left-radius:50%;
+				border-top-right-radius:50%;
+				border-bottom-left-radius:50%;
+				border-bottom-right-radius:50%;
+			}
+			.box2:hover{
+				/*border-radius可以分别指定四个值：
+					4个值：左上，右上，右下，左下；
+					3个值：左上，右上/左下，右下；
+					2个值：左上/右下，右上/左下
+				*/
+				border-radius:40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1"></div>
+		hello
+		<div class="box2"></div>
+	</body>
+</html>

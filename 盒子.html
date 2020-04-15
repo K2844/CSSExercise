@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			/*content，border，padding共同影响可见框的大小*/
+			.box1{
+				/*内容区的大小*/
+				width:50px;
+				height:50px;
+				background-color:red;
+				/*边框大小*/
+				border-width:10px;
+				border-style: solid;	
+				border-color:gray;  
+				/*内边距设置，背景颜色会延伸到内边距上*/
+				padding-top: 10px;
+				padding-right: 10em;
+				padding-bottom: 2ex;
+			    padding-left: 20%;
+			    /*margin会影响盒子实际占用空间大小，改变盒子的位置，可以和padding一样简写，同时设置4边的大小*/
+			    margin-top: 20px;
+			    margin-right: 30px;
+			    margin-bottom: 30px;
+			    margin-left: 20px;
+			    /*当子元素的高度大于父元素时，设置overflow的值，
+			    auto则自动调节（滚动条自动调节，宽度合适则只出现纵向滚动条）
+			    hidden则会隐藏多余的值；
+			    scroll则设置滚动条
+			    */
+			    overflow:scroll;
+  				}
+  				/*元素在父元素中水平方向的布局，其内外边距，边框，content的宽度之和需等于父元素content的宽度
+  				如果不成立，则称为过渡约束，如果宽度相关的值（七个值）没有auto，则浏览器会自动调整margin-right至相等；
+  				如果有某个值是auto。则使auto值自动设置至等式成立的值；
+  				如果宽度和外边距位auto，则默认调整宽度至最大，外边距为0；
+  				如果两个外边距为auto，宽度固定，则两个外边距为相同的值
+  				*/
+  				.box2{
+  				width:auto;
+  				height:80px;
+  				background-color:blue;
+  				}
+  				/*行内元素的宽度和高度不可设置，由内容撑开，
+  				可设置padding，border和margin，但垂直高度不可设置*/
+  				span{
+  				background-color:yellow;
+  				margin:10em;
+  				}
+  				/*display可选值：
+  				block：块元素，
+  				inline：行内元素
+  				inline-block：行内块元素，既可设置高度与宽度，又不会独占一行；
+  				none:元素不在页面中显示，可通过技术手段展现，例如菜单栏
+  				*/
+  				a{
+  				display:block;
+  				/*visibility:
+  				hidden:隐藏，但是依旧占据空间；
+  				visible：可见；
+  				*/
+  				visibility:hidden;
+  				width:50px;
+				height:50px;
+				background-color:black;
+				color:white;
+				
+  				}
+		</style>
+	</head>
+	<body>
+		<a href="#">超链接</a>
+		<span>aaaa</span>
+		<div class="box1">
+			<div class="box2"></div>
+		</div>
+	</body>
+</html>

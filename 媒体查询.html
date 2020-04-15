@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			/*
+			使用媒体查询，语法：@media 查询规则 {}
+			媒体类型
+				all 所有设备
+				print	打印设备
+				screen	带屏幕的设备
+				speech	屏幕阅读器
+				可以使用逗号连接多个媒体类型，表示或
+			可在媒体类型前加上only，表示只有，以便兼容老版本浏览器
+			媒体特性
+				width:视口宽度
+				height:视口高度
+				min-width:视口的最小宽度（大于该值生效）
+				max-width:视口的最大宽度（小于该值生效）
+			样式切换的分界点，为断点，即网页样式在这个点会发生变化
+			常用断点：
+				小于768	超小屏幕	max-width:768px	
+				大于768	小屏幕	min-width:768px
+				大于992	中型屏幕	min-width:992px
+				大于1200	大屏幕	min-width:1200px
+			*/
+			
+			/*
+			@media only screen{
+				body{
+					background-color:#bfa;
+				}
+			*/
+			
+			/*
+			@media (max-width:1000px){
+				body{
+					background-color:#bfa;
+				}
+			*/
+			
+			/*and表示与（以下表示1000-1200），逗号表示或，not为非，用的较少*/
+			@media only screen (min-width:1000px) and (max-width:1200px){
+				body{
+					background-color:#bfa;
+				}
+				
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+			响应式布局：网页根据不同设备或窗口大小呈现不同的效果
+			使一个网页适用于所有设备（大公司倾向于针对移动端再开发一个页面）
+			响应式布局的关键是媒体查询
+		 -->
+		<div></div>
+	</body>
+</html>

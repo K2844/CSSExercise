@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="fa/css/all.css" />
+		<style type="text/css">
+			/*
+			解决高度塌陷
+			.top-bar-wrapper{
+			overflow:hidden;
+			}
+			此处用clearfix
+			*/
+			.clearfix::before,
+			.clearfix::after{
+				content:"";
+				display:table;
+				clear:both;
+			}
+			.top-bar-wrapper{
+				background-color:#e3e4e5;
+				font-size:12px;
+				height:30px;
+				margin-top:30px;
+			}
+			.top-bar{
+				width:990px;
+				line-height:30px;
+				margin:0px auto;	
+				/*background-color:red;*/
+			}
+			ul{
+				float:right;
+			}
+			li{
+				padding:0 7px;
+			}
+			.location,.line,li{
+				float:left;
+			}
+			.login{
+				width:105px;
+				overflow:hidden;
+				white-space: nowrap;
+				text-overflow:ellipsis;
+			}
+			.city a,.shortcut a{
+				width:48px;
+				height:16px;
+				color:rgb(153,153,153);
+				text-decoration:none;
+			}
+			.line{
+				font-size:10px;
+				color:rgb(153,153,153);
+			}
+			a:hover{
+				color:red;
+			}
+			.location .city-list{
+				display:none;
+				width:300px;
+				height:300px;
+				border:1px rgb(204,204,204) solid;
+				background-color:white;
+				/*使其脱离父元素，不占位*/
+				position:absolute;
+				margin-top:-1px;
+				box-shadow:0 0 10px rgba(0,0,0,.3);
+			}
+			.location:hover .city-list{
+				display:block;
+			}		
+			.city{
+				padding:0 5px;
+				position:relative;
+				z-index:3;
+			}
+			.location:hover .city{
+				border:1px solid rgb(204,204,204);
+				border-bottom:none;
+				background-color:white;
+				}
+		</style>
+	</head>
+	<body>
+		<div class="top-bar-wrapper">
+			<div class="top-bar clearfix">
+				<div class="location">
+					<div class="city clearfix">
+						<a href="javascript:;"><i class="fas fa-map-marker-alt" style="color:red"></i>北京</a>
+					</div>
+					<div class="city-list"></div>
+				</div>
+				<ul class="shortcut">
+					<li class="login"><a href="#">您好，请登录</a>&nbsp;&nbsp;<a href="#">免费注册</a></li>
+					<span class="line">|</span>
+					<li><a href="#">我的订单</a></li>
+					<span class="line">|</span>
+					<li><a href="#">我的京东<i class="fa fa-angle-down" style="font-size:8px;color:rgb(153,153,153);"></i></a></li>
+					<span class="line">|</span>
+					<li><a href="#">京东会员</a><i class="fa fa-angle-down" style="font-size:8px;color:rgb(153,153,153);"></i></li>
+					<span class="line">|</span>
+					<li><a href="#">企业采购</a><i class="fa fa-angle-down" style="font-size:8px;color:rgb(153,153,153);"></i></li>
+					<span class="line">|</span>
+					<li><a href="#">客户服务</a><i class="fa fa-angle-down" style="font-size:8px;color:rgb(153,153,153);"></i></li>
+					<span class="line">|</span>
+					<li><a href="#">网站导航</a><i class="fa fa-angle-down" style="font-size:8px;color:rgb(153,153,153);"></i></li>
+					<span class="line">|</span>
+					<li><a href="#">手机京东</a><i class="fa fa-angle-down" style="font-size:8px;color:rgb(153,153,153);"></i></li>
+				</ul>	
+			</div>
+		</div>
+		<!-- 测试高度塌陷 -->
+		<!-- <div class="box2"></div> -->
+	</body>
+</html>

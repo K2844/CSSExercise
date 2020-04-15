@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			html{
+				/*给当前网页设置视距，一般800-1200都行，使Z轴平移有效果*/
+				perspective:800px;
+			}
+			.inner{
+				width:100px;
+				height:100px;
+				background-color:red;
+				box-shadow:0 0 8px rgba(0,0,0,.9);
+				margin:0 auto;
+				margin-top:100px;
+				/*
+				变形：不会影响页面布局，
+				transform：设置元素变形的效果：
+				平移：
+				--translateX()沿着x轴方向平移,如果用%表示，为自身宽度的百分比
+				--translateY()沿着y轴方向平移
+				--translateZ()沿着z轴方向平移，即元素和人眼之间的距离（近大远小，值越大，就越近），
+				网页默认不支持透视，要看见Z轴平移效果（立体效果）需要设置视距（一般给html设置）
+				旋转：
+				通过旋转，可以使元素沿着x，y，z轴旋转指定的角度,单位：deg（度），turn（圈）
+				如果不设置透视（视距perspective），则沿x旋转不会出现上下宽度不一样（近大远小），只是高度变化而已
+				rotateX()沿着x轴旋转;
+				rotateY()沿着y轴旋转;
+				rotateZ()沿着z轴旋转;
+				*/
+				transform:translateY(30px);
+				transition:transform 1s;
+			}
+			.inner:hover{
+				/*transform:translateZ(300px);*/
+				/*同一元素只有一个transform，前面的会失效，可以采用简写方式同时设置多个平移效果*/
+				/*transform:translateX(30px);*/
+				transform:translateY(30px) translateZ(600px);
+			}
+			.box2{
+				width:100px;
+				height:100px;
+				background-color:yellow;
+				box-shadow:0 0 8px rgba(0,0,0,.9);
+				margin:0 auto;
+				transition:all 1s;
+				/*
+				对元素进行缩放的函数
+				scaleX()水平方向缩放；
+				scaleY()垂直方向缩放
+				scaleX()水平和垂直方向缩放
+				scaleZ()沿Z轴缩放（3d立体图才能看出效果）
+				*/
+				/*把元素宽度放大为原来的两倍*/
+				transform:scaleX(2);
+				/*变形的原点，默认值为center*/
+				transform-origin:10px 10px;
+			}
+			body:hover .box2{
+				/*可以同时设置旋转和平移，先平移再转和先转再平移效果不同*/
+				transform:rotateY(180deg) translateZ(100px);
+				/*旋转180°后的背面是否可见,hidden,visible(默认值)*/
+				backface-visibility:hidden;
+			}
+			a{
+			background-color:orange;
+			position:absolute;
+			/*
+			这种居中方式，只限于元素大小确定的情况，否则会自动调整width和height的值
+			left:0;
+			right:0;
+			top:0;
+			bottom:0;
+			margin:auto;
+			*/
+			/*元素的边水平居中*/
+			top:50%;
+			left:50%;
+			/*
+			水平平移自身的一半，使其水平居中
+			*/
+			transform:translateX(-50%) translateY(-50%);
+			}
+			.box4,.box5{
+			width:100px;
+			height:100px;
+			background-color:green;
+			margin:auto 10px;
+			float:left;
+			}
+			.box4:hover + .box5{
+			/*制作上浮效果*/
+			transform:translateY(-4px);
+			box-shadow:0 0 5px rgba(0,0,0,.6);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="inner"></div>
+		<div class="box2"></div>
+		<a>aaa</a>
+		<div class="box3">
+			<div class="box4"></div>
+			<div class="box5"></div>
+		</div>
+	</body>
+</html>

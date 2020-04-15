@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+			}
+			.outer ul{
+				width:300px;
+				height:800px;
+				list-style:none;
+				display:flex;
+				border:2px solid red;
+				/*
+				flex-direction:指定弹性元素的排列方式
+				可选择：
+				row（默认值），弹性元素在容器中水平从左至右排列（类似float：left）
+				row-reverse,弹性元素在容器中水平从右至左排列（类似float：right）
+				column，从上到下
+				column-reverse：从下到上
+				主轴：
+				弹性元素的排列方向，例如row：自左向右，row-reverse：自右向左
+				侧轴
+				与主轴垂直的方向
+				*/
+				
+				/*
+				--------------------------换行-----------------------------
+				flex-wrap:设置弹性元素是否在弹性容器中自动换行
+				可选择：
+				nowrap（默认值）元素不会自动换行
+				wrap元素沿着辅轴方向自动换行
+				wrap-reverse元素沿着辅轴饭方向自动换行
+				*/
+				flex-wrap:wrap;
+				/*
+				flex-flow:flex-warp和flex-direction的简写属性
+				例：flex-flow:row wrap;
+				*/
+				/*
+				-----------------------------主轴样式--------------------------------
+				justify-content
+					如何分配主轴上的空白空间（元素如何排列）
+					可选值：
+					flex-start元素沿着主轴起边排列（row，则空白在右边）
+					flex-end元素沿着主轴终边排列
+					center元素居中排列（空白在两端）
+					space-around空白在元素两侧（元素两侧的空白都相同，造成边上的两个元素靠边区域相对较小，中间较大（两个元素的空白相加））
+					space-evenly:空白分布到元素的单侧，每一侧的空白大小都一样
+					space-between：空白平均分配到元素之间
+				*/
+				justify-content:flex-start;
+				/*
+				-------------------------辅轴样式------------------------------------
+				align-items元素在辅轴上如何对齐
+					元素间的关系
+					可选择：
+					stretch：（默认）将元素的长度设为相同的值（同一行的元素）
+					flex-start元素沿着辅轴起边排列
+					flex-end元素沿着辅轴终边排列
+					center（结合justify-content，另元素居中）
+					baseline基线对齐（文字的基线对齐，用的少）
+				*/
+				align-items:flex-end;
+				/*
+				align-content辅轴空白空间的分布，
+				可选值：
+				center（上下两端空白分布相等，元素在中间）
+				flex-start等，与主轴方向的类似
+				*/
+				align-content:space-between;
+			}
+			.outer li{
+				width:100px;
+				line-height:100px;
+				background-color:#bfa;
+				font-size:30px;
+				text-align:center;
+				/*
+				弹性元素的属性：
+				flex-grow:(默认值是0)
+					弹性元素的伸展系数，0为不伸展，1为撑满弹性容器
+					当父元素有剩余空间时，如何伸展
+					父元素的剩余空间，会按伸展系数比例进行分配
+				flex-shrink:（默认值是1）
+					弹性元素的收缩系数
+					当父元素不足以容纳所有子元素时，如何收缩（默认值是1，等比例收缩，0则不会收缩）
+					值越大，缩的越多
+				flex-basis元素基础长度
+					如果主轴是横向的，则该值指定弹性元素的宽度
+					如果主轴是纵向的，则该值指定弹性元素的高度
+					默认值是auto，表示参考自身的宽度或高度
+					如果传递了一个具体的数值，则以该值为准，一般都是auto，更灵活
+				flex（简写，可以设置弹性元素的三个属性）
+				flex：伸展系数 压缩系数 基础长度；有顺序要求，不可乱写
+				例：flex:1 1 auto;
+				或者
+				flex:initial;（flex:0 1 auto）
+				flex:auto;（flex:1 1 auto）
+				flex:none;（flex:0 0 auto）
+				*/
+				/*flex-grow:1;*/
+				flex-shrink:0;
+				flex-basis:100px;
+			}
+			.outer li:nth-child(2){
+				background-color:pink;
+				order:3;
+			}
+			.outer li:nth-child(3){
+				background-color:orange;
+				/*order决定弹性元素的排列位置，修改后的元素会排在未修改的元素后面，最好全都改*/
+				order:2;
+			}
+			.outer li:nth-child(4){
+				background-color:chocolate;
+				order:5;
+			}
+			.outer li:nth-child(5){
+				background-color:yellow;
+				order:4;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+		flex弹性盒，伸缩盒（移动端适用，pc端慎用，兼容性不够好，ie8不支持）
+		-布局手段，代替浮动完成页面布局
+		-使元素具有弹性，让元素跟随页面大小改变而变化
+		-弹性容器
+			要是有弹性盒，必须先将一个元素设置为弹性容器
+			display:flex;设置为块级弹性容器
+			display:inline-flex;设置为行内弹性容器（用的少）
+		-弹性元素
+			弹性容器的直接子元素为弹性元素，此处给ul设置为弹性容器，则li为弹性元素
+			一个元素可以同时是弹性容器盒弹性元素，例如可以给li也设为弹性容器
+			
+		-->
+		<div class="outer">
+			<ul>
+				<li>1</li>
+				<li>2
+					<div class="box1">2</div>
+					<div class="box2">2</div>
+				</li>
+				<li>3
+					<div class="box4">3</div>
+					<div class="box5">3</div>
+					<div class="box6">3</div>
+				</li>
+				<li>4</li>
+				<li>
+					<div class="box7">5</div>
+					<div class="box8">5</div>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

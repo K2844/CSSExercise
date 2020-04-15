@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			.mitu{
+				width:132px;
+				height:269px;
+				background-image:url(images/米兔.jpg);
+				background-position:0 -1px;
+				margin:0 auto;
+				animation-name:run;
+				animation-iteration-count:infinite;
+				animation-duration:.2s;
+				animation-timing-function:steps(3);
+			}
+			@keyframes run{
+				from{
+					background-position:0 -1px;
+				}
+				to{
+					background-position:-396px -1px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mitu"></div>
+	</body>
+</html>

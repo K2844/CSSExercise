@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+			}
+			html{
+				perspective:800px;
+			}
+			body{
+				background-image:url(images/星空2.jpg);
+			}
+			img{
+				width:200px;
+				height:200px;
+				vertical-align:top;
+			}
+			.cube{
+				width:200px;
+				height:200px;
+				/*background-color:#bfa;*/
+				margin:auto;
+				margin-top:100px;
+				positon:relative;
+				/*设置3d变形效果*/
+				transform-style:preserve-3d;
+				/*transform默认情况是2d的变形效果，如果不设置transform-style，则会显示2d层面的变形效果*/
+				transform:rotateX(45deg) rotateZ(45deg);
+				animation:rotate 10s forwards linear infinite;
+			}
+			.cube > div{
+				/*
+				为所有元素设置透明度
+				*/
+				opacity:0.7;
+			}
+			.box1{
+				position:absolute;
+				transform:rotateY(90deg) translateZ(100px);
+			}
+			.box2{
+				position:absolute;
+				transform:rotateY(-90deg) translateZ(100px);
+			}
+			.box3{
+				position:absolute;
+				transform:rotateX(90deg) translateZ(100px);
+			}
+			.box4{
+				position:absolute;
+				transform:rotateX(-90deg) translateZ(100px);
+			}
+			.box5{
+				position:absolute;
+				transform:rotateY(180deg) translateZ(100px);
+			}
+			.box6{
+				position:absolute;
+				transform:rotateY(0deg) translateZ(100px);
+			}
+			@keyframes rotate{
+				from{
+					transform:rotateX(0) rotateY(0) translateX(0) translateY(0);
+				}
+				
+				to{
+					transform:rotateX(1turn) rotateY(1turn) translateX(100px) translateY(100px) ;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cube">
+			<div class="box1">
+				<img src="images/maimai1.jpg">
+			</div>
+			<div class="box2">
+				<img src="images/maimai2.jpg">
+			</div>
+			<div class="box3">
+				<img src="images/maimai3.jpg">
+			</div>
+			<div class="box4">
+				<img src="images/maimai4.jpg">
+			</div>
+			<div class="box5">
+				<img src="images/maimai5.jpeg">
+			</div>
+			<div class="box6">
+				<img src="images/maimai6.jpeg">
+			</div>
+		</div>
+	</body>
+</html>

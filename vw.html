@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Insert title here</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		html{
+			/*
+			网页中最小字体是12px，不能设置比12px还小的字体，否则，自动为12px
+			对于宽度750像素的设计图，100vw=750px，计算得0.133333333333vw=1px;
+			即5.3333vw=40px;（乘以40，方便换算，也可乘以100，都行）
+			*/
+			font-size:5.3333vw;
+		}
+		div{
+			/*参照当前字体大小*/
+			width:18.75rem;
+			height:10rem;
+			background-color:#bfa;
+		}
+	</style>
+	</head>
+	<body>
+		<div>
+			<!-- 
+				100vw为当前视口宽度，1vw为1%视口宽度，与百分值不同的是，vw总是参照视口宽度，移动端都兼容，pc端兼容较差
+				设计图的宽度 750px 或 1125px(375的倍数)
+			 -->
+		</div>
+	</body>
+</html>

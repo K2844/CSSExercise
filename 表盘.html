@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+			}
+			.clock{
+				width:300px;
+				height:300px;
+				border-radius:50%;
+				/*border:10px solid black;*/
+				margin:auto;
+				margin-top:10px;
+				position:relative;
+				/*防止时，分，秒的背景转动时出现滚动条*/
+				overflow:hidden;
+				background-image:url(images/表盘.jpg);
+				background-size:300px 300px;
+			}
+			.clock>div{
+				position:absolute;
+				right:0;
+				left:0;
+				top:0;
+				bottom:0;
+				margin:auto;
+			}
+			.hour-wrapper{
+				width:60%;
+				height:60%;
+				/*为了尽快看到效果，所有时间都快了6倍，此处一分钟为10秒，依次类推*/
+				animation:time 7200s infinite;
+			}
+			.hour{
+				width:7px;
+				height:50%;
+				background-color:black;
+				margin:0 auto;
+			}
+			.min-wrapper{
+				width:75%;
+				height:80%;
+				animation:time 600s infinite;
+			}
+			.min{
+				width:5px;
+				height:50%;
+				background-color:black;
+				margin:0 auto;
+			}
+			.second-wrapper{
+				width:90%;
+				height:95%;
+				animation:time 10s steps(60) infinite;
+				
+			}
+			.second{
+				width:2px;
+				height:50%;
+				background-color:red;
+				margin:0 auto;
+			}
+			.center{
+				height:0;
+				width:0;
+				border:5px solid black;
+				border-radius:50%;
+			}
+			.toRotate{
+				transform:rotateZ(10deg);
+			}
+			/*@keyframes time{
+				from{
+					/*变形需要加上transform*/
+					transform:rotateZ(0);
+				}
+				to{
+					transform:rotateZ(360deg);
+				}
+			}*/
+		</style>
+		<script type="text/javascript" src="tools/changeClass.js"></script>
+		<script type="text/javascript">
+		function now(objh,objm,objs){
+			var date = new Date();
+		    var hour = date.getHours();
+			var minute = date.getMinutes();
+			var second = date.getSeconds();
+			var sDegree = second * 6 + "deg";
+			var mDegree = minute * 6 + "deg";
+			var hDegree = hour * 30 + "deg";
+			console.log("hour:"+hour+"min"+minute+"sec"+second);
+			objh.style.transform = "rotateZ(" + hDegree + ")";
+			objm.style.transform = "rotateZ(" + mDegree + ")";
+			objs.style.transform = "rotateZ(" + sDegree + ")";
+		}	
+		window.onload = function(){
+				//var localTimeString = date.toLocaleString();
+				var clock = document.querySelector(".clock").children;
+				now(clock[0],clock[1],clock[2]);
+				/*setInterval(function(){
+					date = new Date();
+				    hour = date.getHours();
+					minute = date.getMinutes();
+					second = date.getSeconds();
+					console.log("hour:"+hour+"min"+minute+"sec"+second);
+					sDegree = second * 6 + "deg";
+					mDegree = minute * 6 + "deg";
+					hDegree = hour * 30 + "deg";
+					clock[0].style.transform = "rotateZ(" + hDegree + ")";
+					clock[1].style.transform = "rotateZ(" + mDegree + ")";
+					clock[2].style.transform = "rotateZ(" + sDegree + ")";
+				},1000);*/
+				setInterval(function(){
+					now(clock[0],clock[1],clock[2]);
+				},1000);
+			};
+		</script>
+	</head>
+	<body>
+		<div class="clock">
+			<div class="hour-wrapper">
+				<div class="hour"></div>
+			</div>
+			<div class="min-wrapper">
+				<div class="min"></div>
+			</div>
+			<div class="second-wrapper">
+				<div class="second"></div>
+			</div>
+			<div class="center"></div>
+		</div>	
+	</body>
+</html>

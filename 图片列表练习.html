@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>图片展示</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<style type="text/css">
+			/*为了更容易看清才设置的背景，实际不需要*/
+			body{
+				background-color:yellow;
+			}
+			.headshow {
+				width:190px;
+				height:594px;
+				overflow:hidden;
+				/*为了更容易看清才设置的背景，实际不需要*/
+				margin:10px auto;
+				background-color:orange;
+			}
+			.headshow li:not(:last-child){
+				margin-bottom:9px;
+			}
+			.headshow img{
+				width:100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<ul class="headshow">
+				<li><a href="#"><img alt="戒指" src="images/戒指.jpg"></a></li>
+				<li><a href="#"><img alt="戒指" src="images/手钻.jpg"></a></li>
+				<li><a href="#"><img alt="戒指" src="images/mobilephone.jpg"></a></li>
+			</ul>
+		</div>
+	</body>
+</html>

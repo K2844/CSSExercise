@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>伪类选择器</title>
+		<style type="text/css">
+			/*设置列表的状态*/
+			ul li{
+				list-style-type:none;
+			}
+			/*
+			伪类：不存在的类，用来描述一个元素的特殊状态，比如第一个子元素，被点击的元素，鼠标移入的元素			
+			*/
+
+			ul li:first-child {
+				color:orange;
+				}
+			ul li:last-child {
+				color:red;
+				}
+			/*n表示0到无穷大，2n表示偶数位，2n+1或odd表示奇数位*/
+			ul li:nth-child(3) {
+				color:purple;
+				}
+			/*派生选择器，也可用>表示元素的子类*/
+			ul > li:nth-child(2n){
+				font-style:italic;
+			}
+			/*first of type：只考虑同类子元素,如下，第一个是同类是小丫
+			ul li:first-of-type{
+				color:red;
+			}
+			*/
+			
+			/*
+			排除同类元素中的第3个
+			
+			ul li:not(:nth-of-type(3)) {
+				color:green;
+			}
+			*/
+			
+			/*给超链接设置伪类，添加不同颜色*/
+			a:link {color: #FF0000}
+			a:visited {color: #00FF00}
+			a:hover {
+			color: #FF00FF;
+			font-size:50px;
+			}
+			a:active {color: #0000FF}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>小丫</li>
+			<li>范冰冰</li>
+			<li>赵今麦</li>
+			<li>唐嫣</li>
+			<a href="https://www.baidu.com">百度</a>
+			<li>刘岩</li>
+		</ul>
+		
+	</body>
+</html>

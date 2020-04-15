@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			.box1{
+				width:400px;
+				height:400px;
+				background-color:#931;
+				position:relative;
+			}
+			.box2{
+				width:100px;
+				height:100px;
+				background-color:greenyellow;
+				margin:auto;
+				/*
+				水平布局：left + margin-left + border-left + padding-left + width + padding-right 
+				+ border-right + margin-right + right=包含块内容区宽度
+				当开启了绝对定位，需添加left和right，规则和之前一样，只是添加了两个值
+				当发生过渡约束时，没有auto值，则自动调整right值调至等式成立；
+				有auto则自动调整auto值至等式成立
+				可设置auto的值：margin，width，left，right
+				left和right的值默认为left，所以不知道left和right，等式不满足会自动调整left和right
+				这时如果设置magin为auto想改变元素位置则不会生效，需先给left和right设为0；
+				
+				垂直方向：margin-top/bottom+border-top/bottom+padding-top/bottom+height=包含块内容区高度
+				当发生过渡约束时，没有auto值，则自动调整bottom值调至等式成立（和宽度规则相似，默认top和bottom也是auto等）；
+				*/
+				position:absolute;
+				left:0;
+				/*
+				如果只设置了left和right，right的值将自动调至最大，若将左右偏差设为0，则可通过margin调整元素横向位置
+				*/
+				right:0;
+				top:0;
+				/*与横向类似*/
+				bottom:0;
+				/*以上方式只在元素大小确认时有效，否则会自动调节width和height*/
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1">
+			<div class="box2"></div>
+		</div>
+	</body>
+</html>

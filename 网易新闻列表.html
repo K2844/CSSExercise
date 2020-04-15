@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>网易新闻列表</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<style type="text/css">
+			body{
+				background-color:yellow;
+			}
+			div.newsbox{
+				width:298px;
+				height:299px;
+				overflow:hidden;
+				background-color:greenyellow;
+				margin:20px auto;
+				padding:1px 1px;
+				border:1px #e5e5e5 solid;			
+			}
+			.photobox{
+				margin-top:18px;
+				margin-bottom:5px;
+				height:110px;
+				padding-left:7px;
+				overflow:hidden;
+			}
+			a{	
+				
+				text-decoration:none;
+				color:black;
+			}
+			a:hover{
+				color:red;
+			}
+			ul{
+				margin:0px 13px;
+				padding:5px 1px 6px 12px;
+				list-style-type:circle;
+			}
+			ul li{
+				padding-top:5px;
+				padding-left:3px;
+				height:28px;
+				inline-height:28px;
+				font-size:14px;
+			}
+			.news-photo{
+				height:115px;
+				display:inline-block;
+				overflow:hidden;
+				
+			}
+			.news-photo img{
+				width:140px;
+				height:88px;
+			}
+			h3{
+				width:140px;
+				height:38px;
+				font-size:12px;
+				margin-top:7px;
+			}
+
+			.head{
+				height:38px;
+				line-height:38px;
+				margin-top:-1px;				
+			}
+			.head a{
+				width:50%;
+				display:inline-block;
+				border-top:1px red solid;
+				color:red;
+				text-align:center;
+				font-weight:bold;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="newsbox">
+			<div class="head">
+				<a href="#">云课堂</a>
+			</div>
+			<div class="photobox">
+				<div class="news-photo">
+					<a href="#"><img alt="云课堂" src="images/云课堂.jpg"></a>	
+					<h3><a href="#">告别低效，人人必备的聪明工作法</a></h3>
+				</div>
+				<div class="news-photo">	
+					<a href="#"><img alt="PS" src="images/PS合集.jpg"></a>
+					<h3><a href="#">PS教程超级合辑【1000集爆款课】</a></h3>
+				</div>
+			</div>
+			<ul>
+				<li><a href="#">躺着也赚钱的基金投资课</a></li>
+				<li><a href="#">Premiere CC 2018影视剪辑全实战</a></li>
+				<li><a href="#">xmind8零基础/进阶/案例全程通关</a></li>
+				<li><a href="#">Axure8.0产品经理（全集）</a></li>
+			</ul>
+		</div>
+	</body>
+</html>

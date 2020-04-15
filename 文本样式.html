@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			p{
+				/*
+				若想让多余的文字显示为省略号，则以下4个设置缺一不可；
+				*/
+				width:200px;
+				white-space: nowrap;
+				overflow:hidden;
+				/*文字溢出以省略号显示*/
+				text-overflow:ellipsis;
+			}
+			.box1{
+				width:800px;
+				border:1px red solid;
+				font-size:50px;
+			}
+			span{
+				font-size:20px;
+				border:1px blue solid;
+				/*
+				vertical-align:
+				baseline:基线对齐（默认）
+				top：顶部对齐；
+				bottom：底部对齐；（如在插入图片，默认为基线对齐，下边或有空白区域，设置顶部或底部对齐，可消除空白区）
+				middle：中线对齐（字体的中线（x的中间点平齐），不是水平居中）
+				或直接写偏移量，如-10px，90px
+				*/
+				vertical-align:top;
+			}
+			.image{
+				border:1px blue solid;
+			}
+			img{
+				/*
+				消除图片下边的空白区（默认是基于基线对齐，所以有空白区）
+				*/
+				vertical-align:bottom;
+			}
+		</style>
+	</head>
+	<body>
+		<p>据央广网报道，3月6日18时整，由湖南涟源开往东莞东的K6568次返岗农民工卧铺专列驶出涟源火车站。
+		涟源市委书记谢学龙，市委副书记、市长刘杰，市政府副处级干部谭付民频频挥手，送即将奔赴生产岗位的农民工。</p>
+		<div class="box1">
+			今天天气Hellox<span>真不错</span>
+		</div>
+		<div class="image"><img src="images/云课堂.jpg"></div>
+	</body>
+</html>

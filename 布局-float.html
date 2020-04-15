@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			/*
+			注意：设置浮动后，水平布局的等式不需要强制成立
+			*/
+			
+			/*
+			浮动的特点：
+			1设置浮动后，脱离文档流，向左或向右浮动，但不会超出父元素；
+			2浮动时，不会超过前边的浮动元素，最多就是一样高（如屏幕变小，
+			box2挤到第二行，则box3无法在第一行，最多和box2一样高）
+			*/
+			
+			/*
+			浮动元素不会覆盖文字，文字会自动环绕在文字的周围，可以利用浮动设置文字环绕图片的效果
+			*/
+			
+			/*脱离文档流后，块元素不再独占一行高度和宽度由内容撑开
+			行内元素则变成块元素，可设置宽度和高度（不再区分块元素和行内元素，如果不设置宽和高，则由内容撑开）
+			*/
+			.box1{
+				width:200px;
+				height:100px;
+				background-color:red;
+				float:left;
+			}
+			.box2{
+				width:400px;
+				height:100px;
+				background-color:yellow;
+				float:left;
+			}
+			.box3{
+				width:100px;
+				height:100px;
+				background-color:green;
+				float:right;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1"></div>
+		<div class="box2"></div>
+		<div class="box3"></div>
+		<p>我哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇</p>
+	</body>
+</html>

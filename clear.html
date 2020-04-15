@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			div{
+				font-size:50px;
+				font-weight:bold;
+				text-align:center;
+			}
+			.box1{
+				width:100px;
+				height:100px;
+				background-color:gray;
+				/*
+				只有box1和box3的情况，box3会被box1覆盖，但是文字会环绕在浮动元素周围
+				*/
+				float:left;
+			}
+			.box2{
+				width:200px;
+				height:200px;
+				background-color:orange;
+				float:right;
+			}
+			.box3{
+				width:100px;
+				height:100px;
+				background-color:greenyellow;
+				/*
+				clear:清除浮动元素对当前元素产生的影响；
+				left:清除左侧浮动对当前元素的影响（float：left）
+				right：清除右侧浮动对当前元素的影响；
+				both：清除两侧元素造成较大影响的那侧（例如box1和box2都浮动，box2尺寸较大，则效果与清除较大侧的效果相同）；
+				此处both和right效果一样；
+				*/
+				clear:right;
+			}
+			.box2:hover{
+				float:none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1">1</div>
+		<div class="box2">2</div>
+		<div class="box3">3</div>
+	</body>
+</html>

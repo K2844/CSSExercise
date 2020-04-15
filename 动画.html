@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			.box1{
+				width:100px;
+				height:100px;
+				background-color:red;
+				/*
+				为.box1设置动画效果，
+				animation-name为当前元素生效的关键帧的名字；
+				*/
+				animation-name:test;
+				/*动画的执行时间*/
+				animation-duration:2s;
+				/*动画时序函数*/
+				animation-timing-function:ease-in-out;
+				/*
+				动画执行的次数
+				可选值：次数，infinite无限执行
+				*/
+				animation-iteration-count:3;
+				/*
+				animation-direction指定动画运行的方向
+				可选值：
+				normal（从from到to，每次都这样）
+				reverse（从to到from，每次都这样)
+				alternate(从to到from运行，重复执行动画时反向运行)
+				alternate-reverse(从from到to运行，重复执行动画时反向运行)
+				*/
+				animation-direction:normal;
+				/*
+				animation-play-state动画的执行状态
+				可选择：running默认值，
+				paused，暂停	
+				*/
+				animation-play-state:running;
+				/*
+				animation-fill-mode动画的填充模式
+				可选值：none（动画结束后回到初始元素位置）
+				forwards（动画结束后会停止在动画结束的位置）
+				backwards（动画延时等待时，元素会处于开始的位置）
+				both结合了forwards和backwards
+				*/
+				animation-fill-mode:both;
+				/*animation-delay设置动画延时*/
+				animation-delay:3s;
+				/*animation简写属性，和过渡一样，延迟时间要在动画时间后面*/
+			}
+			.box1:hover{
+				animation-play-state:paused;				
+			}
+			.box2{
+				width:100px;
+				height:100px;
+				background-color:green;
+			}
+			/*
+			动画可以自动触发，设置动画，需要设置关键帧，关键帧设置了动画的每一个步骤
+			*/
+			@keyframes test{
+				/*
+				from表示动画开始的位置，也可以用%表示
+				*/
+				from{
+					margin-left:0;
+				}
+				/*
+				to表示动画结束的位置，也可以用%表示
+				*/
+				to{
+					margin-left:640px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<div class="box1"></div>
+			<div class="box2"></div>
+		</div>
+	</body>
+</html>

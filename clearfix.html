@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			.outer{
+				border:10px solid red;
+			}
+			.inner{
+				width:100px;
+				height:100px;
+				background-color:purple;
+				float:left;
+			}
+			.box1{
+				width:200px;
+				height:200px;
+				background-color:gray;
+			}
+			.box2{
+				width:100px;
+				height:100px;
+				background-color:#333;
+				margin-top:10px;
+			}
+			/*
+			能同时解决高度塌陷和外边距重叠的问题，如需解决，在类选择器后加上clearfix就好了
+			*/
+			.clearfix::before,
+			.clearfix::after{
+				content:"";
+				display:table;
+				clear:both;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="outer clearfix">
+			<div class="inner"></div>
+		</div>
+		<div class="box1 clearfix">
+			<div class="box2"></div>
+		</div>
+	</body>
+</html>
